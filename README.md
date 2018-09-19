@@ -12,6 +12,7 @@ are only manually selected and therefore they are not optimized.
 
 Simulation with 1000 MC runs:
 https://user-images.githubusercontent.com/15931069/45726434-41970800-bb8d-11e8-8f4e-0b0a52acc1f0.png
+Note: (the graphs in the paper should be in RMSE not MSE)
 
 
 
