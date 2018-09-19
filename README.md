@@ -10,6 +10,8 @@ found, are randomly generated. In the paper, NLOS distributions are emulated and
 There are several hyper-parameters need to be tuned/optimized to obtain the best performance. However, in the implementation, the hyper-parameters 
 are only manually selected and therefore they are not optimized. 
 
+Simulation with 1000 MC runs:
+https://user-images.githubusercontent.com/15931069/45726434-41970800-bb8d-11e8-8f4e-0b0a52acc1f0.png
 
 
 
