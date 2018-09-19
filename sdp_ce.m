@@ -1,3 +1,11 @@
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % the source code implementation of the paper: "Robust convex
+    %          approximation methods for TDOA-based localization under NLOS conditions"
+    %
+    % Author: Gang Wang, 
+    % Ningbo University
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
 function [y1]=sdp_ce(s,d,b,N,p1,a_)
  
     c_=[];
@@ -9,7 +17,7 @@ function [y1]=sdp_ce(s,d,b,N,p1,a_)
     seita=[];
     seita_conj=[];
    v=[];
-for i=1:N-1%1:N            %SDP参量 v
+for i=1:N-1%1:N            %SDP鍙傞噺 v
        v(:,i)=[zeros(1,i+1),1,zeros(1,N-i-1)].';
 end
     for i=1:N-1%1:N
@@ -37,7 +45,7 @@ cvx_clear
 cvx_begin sdp
 cvx_solver   sdpt3% sdpt3
 cvx_quiet(1)
-cvx_precision best %输出结果可能因此报错
+cvx_precision best %杈撳嚭缁撴灉鍙兘鍥犳鎶ラ敊
 
 
 variable tao(N-1,1)%tao(N-1,1)
