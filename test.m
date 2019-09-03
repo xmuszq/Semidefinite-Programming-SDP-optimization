@@ -7,7 +7,7 @@ tic
 MC=10; % how many runs
 p=10; % maximal NLOS value
 N=8; % number of anchors
-t0=0.1;%���Ȳ�������t1һ��ֵ��֤t0����Ϊ����
+t0=0.1;
 
 c=1;
 
@@ -15,7 +15,7 @@ c=1;
 %x_(1)=0;
 %y_(1)=0;
 %s=[];
-%s(:,1)=[x_(1);y_(1)];%�ο�ê�ڵ�����
+%s(:,1)=[x_(1);y_(1)];%
 
 s(:,1)=[-20;-20];%anchors
 s(:,2)=[-20;20];
@@ -37,24 +37,24 @@ for ci=1:2
     end
     
     
-    K=0.1:0.1:1;%�������������
+    K=0.1:0.1:1;
     for m=1:10
         sigma=0.1*m;
-        %Q=0.5*sigma^2*(eye(N-1)+ones(N-1,N-1));%����Э�������
-        Q=0.5*sigma^2*(eye(N)+ones(N,N));%����Э�������
+        %Q=0.5*sigma^2*(eye(N-1)+ones(N-1,N-1));%
+        Q=0.5*sigma^2*(eye(N)+ones(N,N));%
         parfor j=1:MC
             j;
             
-            NLOS_number = randi([6,8],1,1);  %randsrc(1,1,randperm(5));%��ѡ·��
+            NLOS_number = randi([6,8],1,1);  %randsrc(1,1,randperm(5));%
             %n=gauss_samples(zeros(N-1,1),Q,1); % get the noise
             n=gauss_samples(zeros(N,1),Q,1); % get the noise
             
-            x=unifrnd(-25,25);%Ŀ��ڵ�
+            x=unifrnd(-25,25);
             y=unifrnd(-25,25);
             X=[x;y];
             
             w = [];
-            for i=1:N%�������Ӿ���� get the nlos bias for 8 links
+            for i=1:N% get the nlos bias for 8 links
                 w(i)=unifrnd(0,p);
             end
             
@@ -67,7 +67,7 @@ for ci=1:2
             e=[];
             d=[];
             b=[];
-            for i=1:N-1%1:N;%NLOS������ֵ
+            for i=1:N-1%1:N;
                 e(i,1)=g(i+1)*w(i+1)-g(1)*w(1);%w(i+1)-w(1)
                 % e_(i-1,1)=w_(i)-w_(1);
                 d(i)=norm(X-s(:,i+1))-norm(X-s(:,1))+n(i)+e(i);
@@ -88,10 +88,13 @@ for ci=1:2
             
             
             %%%%%%%%%%%% SDP CL chen %%%%%%%%%%%%%%%%%
+            %%  NOTE: remove this part when you run test.m 
+            %% , as SDP_CL_chen.m is only 
+            %%  used for my own testing. 
             e = [];
             d = [];
             t1= [];
-            for i=2:N%NLOS��TDOA���� generate TDOA with NLosֵ
+            for i=2:N %generate TDOA with NLosֵ
                 e(i-1,1)=g(i)*w(i)-g(1)*w(1);%w(i)-w(1);
                 % e_(i-1,1)=w_(i)-w_(1);
                 d(i-1)=norm(X-s(:,i))-norm(X-s(:,1))+n(i-1)+e(i-1);
