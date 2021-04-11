@@ -1,5 +1,6 @@
 # Semidefinite-Programming-SDP-optimization
-Codes for paper "Semidefinite Programming for NLOS Error Mitigation in TDOA Localization"
+Codes for paper "Semidefinite Programming for NLOS Error Mitigation in TDOA Localization". 
+** For those who don't have access to the paper, the PDF file was also uploaded in this repo with name 'Semidefinite Programming for NLOS Error Mitigation in TDOA Localization.pdf'. 
 
 Run the test.m file to simulate the algorithms including SDP, SDP-robust and the proposed SDP. 
 
